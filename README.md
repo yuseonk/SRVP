@@ -9,7 +9,7 @@ For this example, 'mnist_test_seq.npy' should be in `datasets/`.  You can get 'm
 * CUDA 12.4
 * Python 3.8
 * Pytorch 2.4.1+cu124
-* We recommend using `Miniconda` to set up the virtual environment for training SRVP.
+* We recommend using **Miniconda** to set up the virtual environment for training SRVP.
 * Install
 ```
 conda create -n srvp python=3.8
@@ -47,7 +47,7 @@ bash inference.sh
     <img src="./results/mnist/spatiotemp_eval80.png" width="600"> <br>
 </p>
 
-* If you want to get the other sample, change the value of `idx` in `main.py`. Then, run the `inference.sh`.
+* If you want to get the other sample, change the value of **idx** in `main.py`. Then, run the `inference.sh`.
 
 ## Citation
 It will be released.
