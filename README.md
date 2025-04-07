@@ -1,5 +1,7 @@
 # SRVP: Strong Recollection Video Prediction Model Using Attention-Based Spatiotemporal Correlation Fusion
-This is a Pytorch implementation of SRVP. We provide an example using **Moving MNIST** datasets in this repository.
+This is a Pytorch implementation of SRVP. We provide an example using **Moving MNIST** datasets in this repository.  
+  
+* **April 1, 2025 (PDT)**: This paper has been accepted to [The 7th IEEE/CVF CVPR Precognition Workshop](https://sites.google.com/view/ieeecvf-cvpr2025-precognition)
 
 ## Datasets
 For this example, `mnist_test_seq.npy` should be in `datasets/`.  You can get `mnist_test_seq.npy` from [Srivastava](https://www.cs.toronto.edu/~nitish/unsupervised_video/).  
