@@ -107,6 +107,7 @@ class EncoderDecoder(nn.Module):
                  dropout=0.2, horizon=1, output_channels=1, device=None):
         super(EncoderDecoder, self).__init__()
         self.horizon = horizon
+        self.num_rnn = len(hidden_channels)
         self.encoder = RecurrentBlock(horizon, img_size, input_channels, hidden_channels, kernel_size, dropout)
         self.forecast = RecurrentBlock(horizon, img_size, input_channels, hidden_channels, kernel_size, dropout)
         
@@ -116,7 +117,7 @@ class EncoderDecoder(nn.Module):
                                              SpatialAttention(hidden_channels[-1]))
 
         self.enc_sc = TemporalSelfCorrelation(input_time, input_channels, hidden_channels[-1], device)
-        self.step2 = SelfCorrAttentionModule(SpatialSelfCorrelation(hidden_channels[-1]*4, hidden_channels[-1]),
+        self.step2 = SelfCorrAttentionModule(SpatialSelfCorrelation(hidden_channels[-1]*self.num_rnn, hidden_channels[-1]),
                                              TemporalAttention(), 
                                              SpatialAttention(hidden_channels[-1]),
                                              nn.Sequential(nn.Conv2d(hidden_channels[-1], emb_dim, kernel_size=3, padding=1),
@@ -130,7 +131,7 @@ class EncoderDecoder(nn.Module):
                                              nn.Sequential(nn.Conv2d(emb_dim, emb_dim//2, kernel_size=3, padding=1),
                                                            nn.Tanh()))
 
-        in_channels = hidden_channels[-1]*4+(hidden_channels[-1])*2+(emb_dim//2)*2 # curr hidden, standard, selfcorr
+        in_channels = hidden_channels[-1]*self.num_rnn+(hidden_channels[-1])*2+(emb_dim//2)*2 # curr hidden, standard, selfcorr
         self.output_layer = nn.Sequential(nn.Conv2d(in_channels, output_channels, kernel_size=3, padding=1),
                                           nn.Sigmoid())
         
