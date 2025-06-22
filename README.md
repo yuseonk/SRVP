@@ -4,6 +4,7 @@ This is a Pytorch implementation of SRVP. We provide an example using **Moving M
 * **April 1, 2025**: This paper has been accepted to [The 7th IEEE/CVF CVPR Precognition Workshop](https://sites.google.com/view/ieeecvf-cvpr2025-precognition)
 * **April 10, 2025**: Camera-ready submission complete.
 * The paper is available at [arXiv](http://arxiv.org/abs/2504.08012).
+* [CVF Proceedings](https://openaccess.thecvf.com/CVPR2025_workshops/Precognition)
 
 ## Datasets
 For this example, `mnist_test_seq.npy` should be in `datasets/`.  You can get `mnist_test_seq.npy` from [Srivastava](https://www.cs.toronto.edu/~nitish/unsupervised_video/).  
@@ -54,4 +55,13 @@ bash inference.sh
 * If you want to get the other sample, change the value of **idx** in `main.py`. Then, run the `inference.sh`.
 
 ## Citation
-It will be released.
+```
+@InProceedings{Kim_2025_CVPR,
+    author    = {Kim, Yuseon and Park, Kyongseok},
+    title     = {SRVP: Strong Recollection Video Prediction Model Using Attention-Based Spatiotemporal Correlation Fusion},
+    booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR) Workshops},
+    month     = {June},
+    year      = {2025},
+    pages     = {5283-5292}
+}
+```
